@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL | Operation Digital Detective</title>
+    <style>
+        :root {
+            --neon-green: #39FF14;
+            --dark-bg: #0a0a0a;
+            --terminal-font: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--neon-green);
+            font-family: var(--terminal-font);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Scanline Effect */
+        body::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            border: 2px solid var(--neon-green);
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            position: relative;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            border-bottom: 2px solid var(--neon-green);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 1.5rem;
+        }
+
+        .glitch {
+            animation: glitch 1s linear infinite;
+        }
+
+        @keyframes glitch {
+            2%, 64% { transform: translate(2px, 0) skew(0deg); }
+            4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+            62% { transform: translate(0, 0) skew(5deg); }
+        }
+
+        .briefing {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .role-card {
+            border: 1px solid rgba(57, 255, 20, 0.5);
+            padding: 10px;
+            background: rgba(57, 255, 20, 0.05);
+        }
+
+        .btn-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            color: black;
+            background-color: var(--neon-green);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-link:hover {
+            background-color: white;
+            box-shadow: 0 0 25px var(--neon-green);
+            transform: scale(1.05);
+        }
+
+        .blink {
+            animation: blinker 1s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.7rem;
+            opacity: 0.6;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="glitch">> OPERATION: DIGITAL DETECTIVE</h1>
+        
+        <div class="briefing">
+            <p>[SYSTEM STATUS: SECURE]</p>
+            <p>[MISSION TYPE: OSINT INVESTIGATION]</p>
+            <p>Welcome, Agents. Your team has been assigned to track a high-value target through their digital footprint. Use public maps, social media archives, and metadata tools to complete your dossier.</p>
+        </div>
+
+        <div class="roles-grid">
+            <div class="role-card"><strong>01. LEAD:</strong> Manages the Form</div>
+            <div class="role-card"><strong>02. MAPPERS:</strong> Geolocation experts</div>
+            <div class="role-card"><strong>03. ARCHIVE:</strong> Wayback Machine ops</div>
+            <div class="role-card"><strong>04. FORENSIC:</strong> Image & Meta analysis</div>
+        </div>
+
+        <center>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeH91zCro8XwT1Cy94Xrc7yCM9EY_Q8hWLFsTcTzTw4OI4azg/viewform?usp=publish-editor" target="_blank" class="btn-link">INITIALIZE MISSION HUB</a>
+            <p class="blink" style="margin-top: 15px;">AWAITING COMMAND...</p>
+        </center>
+
+        <footer>
+            PROPRIETARY SYSTEM // ENCRYPTION LEVEL 7 // NO UNAUTHORIZED ACCESS
+        </footer>
+    </div>
+
+</body>
+</html>
